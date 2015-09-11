@@ -2,7 +2,7 @@
 An AngularJS directive to detect clicks outside of an element.
 
 #Installation
-Simply include the development version or the minified version, and add the "offClick.directive.module" dependency to the modules you're going to use the directive at.
+Simply include the development version or the minified version, and add the "offClick" dependency to the modules you're going to use the directive at.
 
 #Usage
 Used in order to detect clicks oustide an element and execute a callback. The usage goes as:

@@ -14,22 +14,19 @@
     */
     'use strict';
 
-    var moduleName = 'offClick.directive.module';
-
-    angular.module(moduleName, [
-        'eutil.module'
-    ]);
-    if (typeof modules !== 'undefined') {
-        modules.push(moduleName);
+    function createUuid() {
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+            var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+            return v.toString(16);
+        });
     }
-
-    /** ngInject */
-    function Directive(eutil, $document) {
+    
+    function Directive($document) {
         return {
             restrict: 'A',
             link: function(scope, element, attrs) {
                 var offClickAction = attrs.offClick;
-                var offClickGroup = j.either(eutil.buildGuid(), attrs.offClickGroup);
+                var offClickGroup = attrs.offClickGroup || createUuid();
                 element.attr('data-off-click-group', offClickGroup);
 
                 var elementClickHandler = function(event) {
@@ -59,6 +56,6 @@
     }
 
     angular
-        .module(moduleName)
-        .directive('offClick', Directive);
+        .module('offClick', [])
+        .directive('offClick',['$document', Directive]);
 })();
