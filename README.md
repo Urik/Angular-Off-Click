@@ -16,5 +16,3 @@ There are opportunities on which we don't want to execute the callback when a cl
 <button id="menu-trigger" data-off-click-group="header"></button>
 ```
 Then uppon a click at the button, hideMenu() won't be executed because the directive and the buttons are linked together by the data-off-click-group attribute.
-
-EDIT FOR TOM
