@@ -21,6 +21,7 @@
         });
     }
     
+    Directive.$inject = ['$document'];
     function Directive($document) {
         return {
             restrict: 'A',
@@ -57,5 +58,5 @@
 
     angular
         .module('offClick', [])
-        .directive('offClick',['$document', Directive]);
+        .directive('offClick', Directive);
 })();
